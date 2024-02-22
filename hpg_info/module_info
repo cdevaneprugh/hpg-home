@@ -1,0 +1,182 @@
+
+---------------------------- GCC 5.2.0 dependent modules ----------------------------
+   netcdf-c/4.3.3.1    netcdf-c/4.4.0    netcdf-f/4.4.4
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0 (D)    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+
+
+---------------------------- GCC 6.3.0 dependent modules ----------------------------
+   netcdf-c/4.4.1.1
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0 (D)    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+
+
+---------------------------- GCC 7.3.0 dependent modules ----------------------------
+   lapack/3.8.0    scalapack/2.0.2
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+
+
+---------------------------- GCC 8.2.0 dependent modules ----------------------------
+   lapack/3.8.0    openmpi/4.0.1    openmpi/4.0.3 (D)
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+
+
+---------------------------- GCC 9.3.0 dependent modules ----------------------------
+   netcdf-c/4.9.0 (D)    openmpi/4.0.4    openmpi/4.1.1 (D)
+   netcdf-f/4.5.4        openmpi/4.0.5
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+
+
+-------------------- /apps/lmod/modulefiles/compiler/gcc/12.2.0 ---------------------
+   lapack/3.11.0    openmpi/4.1.5
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+
+
+--------------------------- Intel 2018 dependent modules ----------------------------
+   netcdf-c/4.5.0    netcdf-f/4.4.4    openmpi/4.0.3
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0 (D)    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+
+
+--------------------------- Intel 2019 dependent modules ----------------------------
+   openmpi/4.0.0    openmpi/4.0.1    openmpi/4.0.3 (D)
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+
+
+--------------------------- Intel 2020 dependent modules ----------------------------
+   openmpi/4.0.3        openmpi/4.0.5    openmpi/4.1.5
+   openmpi/4.0.4 (D)    openmpi/4.1.1
+
+----------------------------------- Core Modules ------------------------------------
+   netcdf-c/4.6.0    netcdf/4.2    netcdf/4.7.2 (D)
+
+  Where:
+   D:  Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any
+of the "keys".
+
+

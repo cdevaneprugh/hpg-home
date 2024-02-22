@@ -1,0 +1,38 @@
+/home/cdevaneprugh/testing
+c0705a-s1.ufhpc
+Fri Feb 16 18:33:50 EST 2024
+running cime regression test
+Traceback (most recent call last):
+  File "/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/scripts/tests/scripts_regression_tests.py", line 2934, in <module>
+    _main_func(__doc__)
+  File "/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/scripts/tests/scripts_regression_tests.py", line 2874, in _main_func
+    MACHINE = Machines()
+              ^^^^^^^^^^
+  File "/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/scripts/tests/../lib/CIME/XML/machines.py", line 53, in __init__
+    machine = self.probe_machine_name()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/scripts/tests/../lib/CIME/XML/machines.py", line 112, in probe_machine_name
+    machine = self._probe_machine_name_one_guess(nametomatch)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/scripts/tests/../lib/CIME/XML/machines.py", line 147, in _probe_machine_name_one_guess
+    regex = re.compile(regex_str)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/lib/python3.11/re/__init__.py", line 227, in compile
+    return _compile(pattern, flags)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/lib/python3.11/re/_compiler.py", line 743, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/lib/python3.11/re/_parser.py", line 982, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/lib/python3.11/re/_parser.py", line 457, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/lib/python3.11/re/_parser.py", line 684, in _parse
+    raise source.error("nothing to repeat",
+re.error: nothing to repeat at position 0
+Fri Feb 16 18:34:06 EST 2024

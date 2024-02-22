@@ -1,0 +1,29 @@
+There are two MPI examples in these directories, each using one of 5
+different MPI interfaces:
+
+- Hello world
+  C:                   hello_c.c
+  C++:                 hello_cxx.cc
+  Fortran mpif.h:      hello_mpifh.f
+  Fortran use mpi:     hello_f90.f90
+  Fortran use mpi_f08: hello_f08.f90
+
+- Send a trivial message around in a ring
+  C:                   ring_c.c
+  C++:                 ring_cxx.cc
+  Fortran mpif.h:      ring_mpifh.f
+  Fortran use mpi:     ring_f90.f90
+  Fortran use mpi_f08: ring_f08.f90
+
+Additionally, there's one further example application, but this one
+only uses the MPI C bindings:
+
+- Test the connectivity between all processes
+  C:   connectivity_c.c
+
+Load an appropriate development environment with something like:
+$ module load ufrc
+$ srundev --mem=4gb --ntasks=2 --cpus-per-task=1 --time=01:00:00 
+
+Load the appropriate modules in once in a dev environment
+$ module restore mpi_testing
