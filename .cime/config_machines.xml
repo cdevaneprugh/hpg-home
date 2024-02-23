@@ -11,11 +11,11 @@
     <MPILIBS>openmpi,impi,mpi-serial</MPILIBS>
     
     <!--input and output for cases, boundary conditions, etc-->
-    <CIME_OUTPUT_ROOT>$BLUEHOME/cesm_data_root/cime_output_root</CIME_OUTPUT_ROOT>
-    <DIN_LOC_ROOT>$BLUEHOME/cesm_data_root/inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>$BLUEHOME/cesm_data_root/lmwg</DIN_LOC_ROOT_CLMFORC>
+    <CIME_OUTPUT_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cime_output_root</CIME_OUTPUT_ROOT>
+    <DIN_LOC_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/inputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/blue/gerber/cdevaneprugh/cesm_data_root/lmwg</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
-    <BASELINE_ROOT>$BLUEHOME/cesm_data_root/cesm_baselines</BASELINE_ROOT>
+    <BASELINE_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cesm_baselines</BASELINE_ROOT>
     
     <!-- not sure if I even need to set this. default is gmake->make. 
          GMAKE_J: optional number of threads to pass to the gmake flag -->
@@ -65,7 +65,7 @@
 	modules for the case. I'll try to restore saved collections for now -->
       <modules>
 	<command name="purge"/>
-	<command name="restore">cime_gcc1220</command>
+	<command name="restore">cesm_gcc1220</command>
       </modules>
     </module_system>
 
@@ -78,7 +78,6 @@
     </environment_variables>
 -->
 
-    <!-- resource settings as defined in https://docs.python.org/2/library/resource.html -->
     <resource_limits>
       <resource name="RLIMIT_STACK">-1</resource>
     </resource_limits>
