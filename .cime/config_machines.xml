@@ -49,7 +49,8 @@
     <mpirun mpilib="mpi-serial">
       <executable></executable>
     </mpirun>
-    
+
+<!--I'm pretty sure all this is correct-->    
     <module_system type="module" allow_error="true">
       <init_path lang="perl">/apps/lmod/lmod/init/perl</init_path>
       <init_path lang="python">/apps/lmod/lmod/init/env_modules_python.py</init_path>
@@ -65,7 +66,7 @@
 	modules for the case. I'll try to restore saved collections for now -->
       <modules>
 	<command name="purge"/>
-	<command name="restore">cesm_gcc1220</command>
+	<command name="restore">cesm_gcc_testing</command>
       </modules>
     </module_system>
 

@@ -15,6 +15,7 @@
   
   <SLIBS>
     <append>-L$(NETCDF_PATH)/lib -lnetcdf</append> 
+    <append>$SHELL{${NETCDF_PATH}/bin/nc-config --flibs}</append>
   </SLIBS>
 
 </compiler>

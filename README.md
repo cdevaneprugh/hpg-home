@@ -48,3 +48,22 @@ Problems:
 10. Fixed by adjusting nodename regex. Different errors show up depending on depth of the regex error.
 
 11. Found similar machines to build our config files off of.
+
+12. Ran the regression test again, had some failures. There's still a bunch of
+config options I don't quite understand. Going to try some things.
+
+13. Was getting an error in the regression tests for a "cori-haswell" not found.
+Found a potential fix in the cesm forums. 
+
+https://bb.cgd.ucar.edu/cesm/threads/porting-cesm-to-a-new-machine-configuration-problem-not-using-module.9355/#post-54053
+
+Trying this out to see how it goes. I wonder if cesm checks out an alpha branch
+of cime rather than a maint branch
+
+It worked! No more weird cori-haswell error.
+
+14. At the end of the regression test it lists many failures in the phase HAREDLIB_BUILD
+
+Possible issue with new gnu compiler. Trying this:
+
+https://bb.cgd.ucar.edu/cesm/threads/questions-on-ntasks-rootpe-and-submission.9264/#post-53985
