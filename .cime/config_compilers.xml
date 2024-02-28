@@ -10,12 +10,20 @@
   <CFLAGS>
     <append>-I$ENV{HPC_NETCDF_INC}</append>
   </CFLAGS>
-     
-  <NETCDF_PATH>$ENV{HPC_NETCDF_DIR}</NETCDF_PATH>
+
+  <FFLAGS>
+    <append>-fallow-argument-mismatch -fallow-invalid-boz</append>
+  </FFLAGS>
+
+  <HDF5_PATH>$ENV{HPC_HDF5_DIR}</HDF5_PATH>
+  <LAPACK_LIBDIR>$ENV{HPC_LAPACK_LIB}</LAPACK_LIBDIR>
+  <TRILINOS_PATH>$ENV{HPC_TRILINOS_DIR}</TRILINOS_PATH>
+  <NETCDF_PATH>$ENV{HPC_NETCDF_DIR}</NETCDF_PATH> 
   
   <SLIBS>
-    <append>-L$(NETCDF_PATH)/lib -lnetcdf</append> 
-    <append>$SHELL{${NETCDF_PATH}/bin/nc-config --flibs}</append>
+    <append>-L$(NETCDF_PATH)/lib -lnetcdf -lnetcdff</append> 
+    <append>-llapack -lblas</append>
+    <append> -L$ENV{HPC_HDF5_LIB} -lhdf5_fortran -lhdf5 -lhdf5_hl -lhdf5hl_fortran </append> 
   </SLIBS>
 
 </compiler>

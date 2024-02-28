@@ -3,8 +3,8 @@
   <machine MACH="hipergator">
     <DESC>HiPerGator testing on the hpg-dev node</DESC>
 
-    <!--should pick up any of the nodes on hpg-dev and hpg-default-->
-    <NODENAME_REGEX>c07*</NODENAME_REGEX>
+    <!--should pick up any of the nodes on login, hpg-dev, and hpg-default-->
+    <NODENAME_REGEX>c07*|login*</NODENAME_REGEX>
     
     <OS>LINUX</OS>
     <COMPILERS>gnu,intel</COMPILERS>
@@ -40,15 +40,20 @@
     <PROJECT_REQUIRED>FALSE</PROJECT_REQUIRED>
    
 <!--can add extra arguments if needed. ex: tasks = -np {number of tasks}--> 
-    <mpirun mpilib="default">
+    <mpirun mpilib="openmpi">
       <executable>mpirun</executable>
+      <arguments>
+        <arg name="ntasks"> -np {{ total_tasks }} </arg>
+      </arguments>
     </mpirun>
 
 <!--this seems weird to set with no executable, other machines had something 
      similar. comment out if it's a problem-->
+<!--
     <mpirun mpilib="mpi-serial">
       <executable></executable>
     </mpirun>
+-->
 
 <!--I'm pretty sure all this is correct-->    
     <module_system type="module" allow_error="true">
@@ -70,14 +75,12 @@
       </modules>
     </module_system>
 
-<!--unsure of how to set these, couldn't get a clear picture from other
-     machines. will ask hpg support for input on mpi env variables-->
-<!--
     <environment_variables>
-      <env name="CESMDATAROOT">/blue/gerber/cdevaneprugh/cesm_data_root</env> 
-      <env name="OMP_STACKSIZE">256M</env>    
+
+      <!-- based on size of L3 cache -->
+      <env name="OMP_STACKSIZE">256M</env>
+
     </environment_variables>
--->
 
     <resource_limits>
       <resource name="RLIMIT_STACK">-1</resource>
