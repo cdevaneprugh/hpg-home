@@ -67,3 +67,7 @@ It worked! No more weird cori-haswell error.
 Possible issue with new gnu compiler. Trying this:
 
 https://bb.cgd.ucar.edu/cesm/threads/questions-on-ntasks-rootpe-and-submission.9264/#post-53985
+
+15. Looks like cmake macro errors have vanished. Still working on issue in 14, will keep trying things.
+
+16. Added config_batch xml file to work towards getting cesm to interact with slurm. Certainly not ready for testing yet
