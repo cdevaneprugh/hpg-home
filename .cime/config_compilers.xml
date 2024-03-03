@@ -58,23 +58,23 @@
     <append compile_threaded="true"> -fopenmp </append>
   </LDFLAGS>
 
-  <MPICC> mpicc  </MPICC>
-  <MPICXX> mpicxx </MPICXX>
-  <MPIFC> mpif90 </MPIFC>
-  <SCC> gcc </SCC>
-  <SCXX> g++ </SCXX>
-  <SFC> gfortran </SFC>
+  <MPICC>mpicc</MPICC>
+  <MPICXX>mpicxx</MPICXX>
+  <MPIFC>mpif90</MPIFC>
+  <SCC>gcc</SCC>
+  <SCXX>g++</SCXX>
+  <SFC>gfortran</SFC>
   <SUPPORTS_CXX>TRUE</SUPPORTS_CXX>
 
-  <HDF5_PATH>$ENV{HPC_HDF5_DIR}</HDF5_PATH>
-  <LAPACK_LIBDIR>$ENV{HPC_LAPACK_LIB}</LAPACK_LIBDIR>
-  <TRILINOS_PATH>$ENV{HPC_TRILINOS_DIR}</TRILINOS_PATH>
+<!--  <HDF5_PATH>$ENV{HPC_HDF5_DIR}</HDF5_PATH>-->
+<!--  <LAPACK_LIBDIR>$ENV{HPC_LAPACK_LIB}</LAPACK_LIBDIR>-->
+<!--  <TRILINOS_PATH>$ENV{HPC_TRILINOS_DIR}</TRILINOS_PATH> -->
   <NETCDF_PATH>$ENV{HPC_NETCDF_DIR}</NETCDF_PATH> 
   
   <SLIBS>
     <append>-L$(NETCDF_PATH)/lib -lnetcdf -lnetcdff</append> 
-    <append>-llapack -lblas</append>
-    <append> -L$ENV{HPC_HDF5_LIB} -lhdf5_fortran -lhdf5 -lhdf5_hl -lhdf5hl_fortran </append> 
+<!--    <append>-llapack -lblas</append>
+    <append>-L$ENV{HPC_HDF5_LIB} -lhdf5_fortran -lhdf5 -lhdf5_hl -lhdf5hl_fortran </append> -->
   </SLIBS>
 
 </compiler>

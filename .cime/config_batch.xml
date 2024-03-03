@@ -2,7 +2,6 @@
 <config_batch version="2.1">
 
   <batch_system MACH="hipergator" type="slurm" >
-    <batch_query per_job_arg="-j">squeue</batch_query>
     <batch_submit>sbatch</batch_submit>
     <batch_cancel>scancel</batch_cancel>
     <batch_directive>#SBATCH</batch_directive>
@@ -13,50 +12,24 @@
     <walltime_format>%H:%M:%S</walltime_format>
     <batch_mail_flag>--mail-user</batch_mail_flag>
     <batch_mail_type_flag>--mail-type</batch_mail_type_flag>
-    <batch_mail_type>none, all, begin, end, fail</batch_mail_type>
-    <directives>
-      <directive> --job-name={{ job_id }}</directive>
-      <directive> --nodes={{ num_nodes }}</directive>
-      <directive> --ntasks-per-node={{ tasks_per_node }}</directive>
-      <directive> --output={{ job_id }}   </directive>
-    </directives>
+    <batch_mail_type>NONE, BEGIN, END, FAIL, ALL</batch_mail_type>
 
-<!--look at other machines and forum post to set this up-->
-    <queues>
-      <queue walltimemax="00:30:00" default="true">slurm</queue>
-    </queues>
-
+<!-- submit_args: A list of arguments to pass when submitting a job, queue, wallclock time
+       and project are typical sub fields -->
     <submit_args>
       <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/>
-      <arg flag="-q" name="$JOB_QUEUE"/>
-      <arg flag="--account" name="$PROJECT"/>
-      <arg flag="--export=ALL"/>
     </submit_args>
 
+<!-- directives: A list of fields to provide in the script directives section,
+       be careful that these do not conflict with submit_args above -->
     <directives>
+      <directive>--job-name={{ job_id }}</directive>
       <directive>--partition=hpg-default</directive>
-      <directive>--cpus-per-task={{ thread_count }}</directive>
-    </directives>
-
-    <directives>
-      <directive> --mem=1GB </directive>
-    </directives>
-
-    <directives>
-       <directive>--qos=lr_normal</directive>
-       <directive>--partition=lr2</directive>
-       <directive>--account={{ project }}</directive>
-       <directive>--ntasks-per-node={{ tasks_per_node }}</directive>
+      <directive>--mail-type=ALL</directive>
+      <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
+      <directive>--output={{ job_id }}</directive>
     </directives>
 
   </batch_system>
 
 </config_batch>
-#SBATCH --job-name=cime_test      	     # Job name
-#SBATCH --mail-type=START,END,FAIL           # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=cdevaneprugh@ufl.edu     # Where to send mail	
-#SBATCH --ntasks=1                           # Run on a single CPU
-#SBATCH --mem=1gb                            # Job memory request
-#SBATCH --time=00:15:00               # Time limit hrs:min:sec
-#SBATCH --output=cime_test_%j.log   # Standard output and error log
-#SBATCH --qos=gerber-b		      # Try burst

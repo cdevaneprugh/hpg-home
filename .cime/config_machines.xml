@@ -7,9 +7,9 @@
     <NODENAME_REGEX>c07*|login*</NODENAME_REGEX>
     
     <OS>LINUX</OS>
-    <COMPILERS>gnu,intel</COMPILERS>
-    <MPILIBS>openmpi,impi,mpi-serial</MPILIBS>
-    
+    <COMPILERS>gnu</COMPILERS>
+    <MPILIBS>openmpi</MPILIBS>
+ 
     <!--input and output for cases, boundary conditions, etc-->
     <CIME_OUTPUT_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cime_output_root</CIME_OUTPUT_ROOT>
     <DIN_LOC_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/inputdata</DIN_LOC_ROOT>
@@ -17,16 +17,11 @@
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
     <BASELINE_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cesm_baselines</BASELINE_ROOT>
     
-    <!-- not sure if I even need to set this. default is gmake->make. 
-         GMAKE_J: optional number of threads to pass to the gmake flag -->
     <GMAKE>make</GMAKE>
-<!--<GMAKE_J>8</GMAKE_J> look up what default is-->
 
-<!--for testing on hpg-dev, disable batch system-->
-    <BATCH_SYSTEM>none</BATCH_SYSTEM>
+    <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
     <SUPPORTED_BY>cdevaneprugh</SUPPORTED_BY>
 
-    <!--CURRENTLY SET FOR HPG-DEV. FOR HPG-DEFAULT SET TO 128-->
     <!-- MAX_TASKS_PER_NODE: maximum number of threads*tasks per
 	 shared memory node on this machine,
 	 should always be >= MAX_MPITASKS_PER_NODE -->
@@ -36,7 +31,6 @@
 	 this machine, in practice the MPI tasks per node will not exceed this value -->
     <MAX_MPITASKS_PER_NODE>10</MAX_MPITASKS_PER_NODE>
     
-<!-- not sure if this should be blank or set to false for testing on hpg-dev-->
     <PROJECT_REQUIRED>FALSE</PROJECT_REQUIRED>
    
 <!--can add extra arguments if needed. ex: tasks = -np {number of tasks}--> 
@@ -47,8 +41,8 @@
       </arguments>
     </mpirun>
 
-<!--this seems weird to set with no executable, other machines had something 
-     similar. comment out if it's a problem-->
+<!--this seems weird to set with no executable, but other machines had something 
+     similar.-->
 <!--
     <mpirun mpilib="mpi-serial">
       <executable></executable>
