@@ -3,78 +3,28 @@
 
 <compiler COMPILER="gnu" MACH="hipergator">
 
-  <CONFIG_ARGS>
-    <base> --host=Linux </base>
-  </CONFIG_ARGS>
-
+<!--    
   <CFLAGS>
-    <base> -std=gnu99 </base>
     <append>-I$ENV{HPC_NETCDF_INC}</append>
-    <append compile_threaded="true"> -fopenmp </append>
-    <append DEBUG="TRUE"> -g -Wall -Og -fbacktrace -ffpe-trap=invalid,zero,overflow -fcheck=bounds </append>
-    <append DEBUG="FALSE"> -O </append>
   </CFLAGS>
 
-  <CPPDEFS>
-    <!-- http://gcc.gnu.org/onlinedocs/gfortran/ -->
-    <append> -DFORTRANUNDERSCORE -DNO_R16 -DCPRGNU</append>
-  </CPPDEFS>
-
-  <CXX_LINKER>FORTRAN</CXX_LINKER>
-
-  <FC_AUTO_R8>
-    <base> -fdefault-real-8 </base>
-  </FC_AUTO_R8>
-
   <FFLAGS>
-    <!-- -ffree-line-length-none and -ffixed-line-length-none need to be in FFLAGS rather than in FIXEDFLAGS/FREEFLAGS
-       so that these are passed to cmake builds (cmake builds don't use FIXEDFLAGS and FREEFLAGS). -->
-    <base>-fconvert=big-endian -ffree-line-length-none -ffixed-line-length-none -fallow-argument-mismatch -fallow-invalid-boz</base>
-    <append compile_threaded="true"> -fopenmp </append>
-    <!-- Ideally, we would also have 'invalid' in the ffpe-trap list. But at
-	 least with some versions of gfortran (confirmed with 5.4.0, 6.3.0 and
-	 7.1.0), gfortran's isnan (which is called in cime via the
-	 CPRGNU-specific shr_infnan_isnan) causes a floating point exception
-	 when called on a signaling NaN. -->
-    <append DEBUG="TRUE"> -g -Wall -Og -fbacktrace -ffpe-trap=zero,overflow -fcheck=bounds </append>
-    <append DEBUG="FALSE"> -O </append>
+    <append>-fallow-argument-mismatch -fallow-invalid-boz</append>
   </FFLAGS>
+-->
 
-  <FFLAGS_NOOPT>
-    <base> -O0 </base>
-  </FFLAGS_NOOPT>
-
-  <FIXEDFLAGS>
-    <base>  -ffixed-form </base>
-  </FIXEDFLAGS>
-
-  <FREEFLAGS>
-    <base> -ffree-form </base>
-  </FREEFLAGS>
-
-  <HAS_F2008_CONTIGUOUS>FALSE</HAS_F2008_CONTIGUOUS>
-
-  <LDFLAGS>
-    <append compile_threaded="true"> -fopenmp </append>
-  </LDFLAGS>
-
-  <MPICC>mpicc</MPICC>
-  <MPICXX>mpicxx</MPICXX>
-  <MPIFC>mpif90</MPIFC>
-  <SCC>gcc</SCC>
-  <SCXX>g++</SCXX>
-  <SFC>gfortran</SFC>
-  <SUPPORTS_CXX>TRUE</SUPPORTS_CXX>
-
-<!--  <HDF5_PATH>$ENV{HPC_HDF5_DIR}</HDF5_PATH>-->
-<!--  <LAPACK_LIBDIR>$ENV{HPC_LAPACK_LIB}</LAPACK_LIBDIR>-->
-<!--  <TRILINOS_PATH>$ENV{HPC_TRILINOS_DIR}</TRILINOS_PATH> -->
-  <NETCDF_PATH>$ENV{HPC_NETCDF_DIR}</NETCDF_PATH> 
+<!--<HDF5_PATH>$ENV{HPC_HDF5_DIR}</HDF5_PATH>--> 
+  <LAPACK_LIBDIR>$ENV{HPC_LAPACK_LIB}</LAPACK_LIBDIR>
+<!--<TRILINOS_PATH>$ENV{HPC_TRILINOS_DIR}</TRILINOS_PATH>-->
+  <NETCDF_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-c/4.6.1</NETCDF_PATH> 
+  <NETCDF_C_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-c/4.6.1</NETCDF_C_PATH> 
+  <NETCDF_FORTRAN_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-f/4.4.4</NETCDF_FORTRAN_PATH> 
   
   <SLIBS>
-    <append>-L$(NETCDF_PATH)/lib -lnetcdf -lnetcdff</append> 
-<!--    <append>-llapack -lblas</append>
-    <append>-L$ENV{HPC_HDF5_LIB} -lhdf5_fortran -lhdf5 -lhdf5_hl -lhdf5hl_fortran </append> -->
+    <append>-L$(NETCDF_PATH)/lib64 -lnetcdf</append> 
+    <append>-L$(NETCDF_FORTRAN_PATH)/lib64 -lnetcdff</append> 
+    <append>-L$(LAPACK_LIBDIR) -llapack -lblas</append>
+<!--<append>-L$ENV{HPC_HDF5_LIB} -lhdf5_fortran -lhdf5 -lhdf5_hl -lhdf5hl_fortran </append>--> 
   </SLIBS>
 
 </compiler>
