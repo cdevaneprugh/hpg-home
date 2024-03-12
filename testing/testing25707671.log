@@ -1,0 +1,43 @@
+/home/cdevaneprugh/testing
+c0706a-s3.ufhpc
+Tue Mar 12 12:21:04 EDT 2024
+
+Currently Loaded Modules:
+  1) ufrc               5) perl/5.24.1     9) git/2.30.1
+  2) cmake/3.26.4       6) netcdf/4.7.2   10) openmpi/4.1.5
+  3) subversion/1.9.7   7) gcc/12.2.0     11) python/3.11
+  4) libplplot/5.10.0   8) lapack/3.11.0
+
+ 
+
+HPC_CMAKE_BIN=/apps/cmake/3.26.4/bin
+HPC_CMAKE_DIR=/apps/cmake/3.26.4
+HPC_CMAKE_DOC=/apps/cmake/3.26.4/doc/cmake-3.26
+HPC_COMPILER_FAMILY=gnu
+HPC_GCC_DIR=/apps/compilers/gcc/12.2
+HPC_GCC_PYTHON_DIR=/apps/compilers/gcc/12.2/share/gcc-12.2.0/python
+HPC_GIT_BIN=/apps/git/2.30.1/bin
+HPC_GIT_DIR=/apps/git/2.30.1
+HPC_LAPACK_DIR=/apps/gcc/12.2.0/lapack/3.11.0
+HPC_LAPACK_LIB=/apps/gcc/12.2.0/lapack/3.11.0/lib
+HPC_LIBPLPLOT_DIR=/apps/lib/plplot/5.10.0
+HPC_LIBPLPLOT_INC=/apps/lib/plplot/5.10.0/include
+HPC_LIBPLPLOT_LIB=/apps/lib/plplot/5.10.0/lib
+HPC_NETCDF_BIN=/apps/netcdf/4.7.2/bin
+HPC_NETCDF_DIR=/apps/netcdf/4.7.2
+HPC_NETCDF_INC=/apps/netcdf/4.7.2/include
+HPC_NETCDF_LIB=/apps/netcdf/4.7.2/lib
+HPC_OPENMPI_BIN=/apps/mpi/gcc/12.2.0/openmpi/4.1.5/bin
+HPC_OPENMPI_DIR=/apps/mpi/gcc/12.2.0/openmpi/4.1.5
+HPC_OPENMPI_DOC=/apps/mpi/gcc/12.2.0/openmpi/4.1.5/share/openmpi
+HPC_OPENMPI_INC=/apps/mpi/gcc/12.2.0/openmpi/4.1.5/include
+HPC_PMIX=pmix_v3
+HPC_PYTHON_BIN=/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/bin
+HPC_PYTHON_DIR=/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5
+HPC_PYTHON_INC=/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/include
+HPC_PYTHON_LIB=/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/lib
+HPC_SUBVERSION_BIN=/apps/subversion/1.9.7/bin
+HPC_SUBVERSION_DIR=/apps/subversion/1.9.7
+HPC_TMUX_BIN=/apps/tmux/3.1/bin
+HPC_TMUX_DIR=/apps/tmux/3.1
+Tue Mar 12 12:21:05 EDT 2024

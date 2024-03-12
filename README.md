@@ -71,3 +71,14 @@ https://bb.cgd.ucar.edu/cesm/threads/questions-on-ntasks-rootpe-and-submission.9
 15. Looks like cmake macro errors have vanished. Still working on issue in 14, will keep trying things.
 
 16. Added config_batch xml file to work towards getting cesm to interact with slurm. Certainly not ready for testing yet
+
+17. Got batch system configured. Model runs almost all regression tests. Seems to just be failing at building some shared library.
+
+Possible causes:
+* fortran compiler flag (issues with newer gcc version)
+* netcdf issue (maybe wrong versions are loaded)
+* lapack issue
+* hd5f issue (maybe I don't need to point to it separately from netcdf)
+
+18. Going to rework all .cime files. (go over them again and see if I missed anything)
+19. Also noticed a perl error. Going to maybe not load a perl module and see if default location covers it. There was also something in the default configs to define the perl location, maybe look at what that variable is.

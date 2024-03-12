@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=testing      	     # Job name
+#SBATCH --mail-type=START,END,FAIL           # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user=cdevaneprugh@ufl.edu     # Where to send mail	
+#SBATCH --ntasks=1                           # Run on a single CPU
+#SBATCH --mem=1gb                            # Job memory request
+#SBATCH --time=00:15:00               # Time limit hrs:min:sec
+#SBATCH --output=testing%j.log   # Standard output and error log
+#SBATCH --qos=gerber		      
+
+pwd; hostname; date
+module list
+env | grep HPC | sort
+
+date

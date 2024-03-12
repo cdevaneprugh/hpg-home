@@ -1,16 +1,14 @@
 <?xml version="1.0"?>
 <config_machines version="2.0">
   <machine MACH="hipergator">
-    <DESC>HiPerGator | hpg-deault | AMD ROME 128 cores per node | slurm</DESC>
+    <DESC>HiPerGator | partition: hpg-default | AMD ROME 128 cores per node | slurm scheduler | lmod module system</DESC>
 
     <!--should pick up any of the nodes on login, hpg-dev, and hpg-default-->
     <NODENAME_REGEX>c07*|login*</NODENAME_REGEX>
     
     <OS>LINUX</OS>
-
-    <!--could add intel compilers later if needed-->
     <COMPILERS>gnu</COMPILERS>
-    <MPILIBS>openmpi</MPILIBS>
+    <MPILIBS>openmpi,mpi-serial</MPILIBS>
  
     <!--input and output for cases, boundary conditions, etc-->
     <CIME_OUTPUT_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cime_output_root</CIME_OUTPUT_ROOT>
@@ -20,33 +18,25 @@
     <BASELINE_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cesm_baselines</BASELINE_ROOT>
     
     <GMAKE>make</GMAKE>
-
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
     <SUPPORTED_BY>cdevaneprugh</SUPPORTED_BY>
 
     <!-- MAX_TASKS_PER_NODE >= MAX_MPITASKS_PER_NODE 
          set to number of cores available in your QOS-->
-    <MAX_TASKS_PER_NODE>2</MAX_TASKS_PER_NODE>
-    <MAX_MPITASKS_PER_NODE>2</MAX_MPITASKS_PER_NODE>
+    <MAX_TASKS_PER_NODE>20</MAX_TASKS_PER_NODE>
+    <MAX_MPITASKS_PER_NODE>20</MAX_MPITASKS_PER_NODE>
    
     <!-- project name not required for hpg, usually used in systems for billing --> 
     <PROJECT_REQUIRED>FALSE</PROJECT_REQUIRED>
    
-<!--can add extra arguments if needed. ex: tasks = -np {number of tasks}--> 
-    <mpirun mpilib="openmpi">
+    <!--can add extra arguments if needed. ex: tasks = -np {number of tasks}--> 
+    <mpirun mpilib="default">
       <executable>mpirun</executable>
-      <arguments>
-        <arg name="ntasks"> -np {{ total_tasks }} </arg>
-      </arguments>
     </mpirun>
 
-<!--this seems weird to set with no executable, but other machines had something 
-     similar.-->
-<!--
     <mpirun mpilib="mpi-serial">
       <executable></executable>
     </mpirun>
--->
 
     <!--dependent on how module system was set up-->    
     <module_system type="module" allow_error="true">
@@ -59,19 +49,20 @@
       <cmd_path lang="sh">module</cmd_path>
       <cmd_path lang="csh">module</cmd_path>
 
-      <!--used in loading modules once cases are sent to scheduler.
-           this will need to be changed later to load individual modules instead of restoring a personal collection-->
-      <modules>
-	<command name="purge"/>
-	<command name="restore">cime_porting2</command>
-      </modules>
+     <modules compiler="gnu">
+       <command name="restore">gcc12_env</command>
+     </modules>
+
+     <modules compiler="gnu" mpilib="mpi-serial">
+       <command name="rm">openmpi/4.1.5</command>
+     </modules>
+
     </module_system>
 
     <environment_variables>
-
-      <!-- based on L3 cache size of hpg-default processors-->
+      <!--L3 cache size of hpg-default processors-->
       <env name="OMP_STACKSIZE">256M</env>
-
+      <env name="PERL5LIB">/apps/perl/perls/perl-5.24.1/lib/site_perl/5.24.1:/apps/perl/perls/perl-5.24.1/lib/5.24.1</env>
     </environment_variables>
 
     <resource_limits>

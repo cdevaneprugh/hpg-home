@@ -16,7 +16,7 @@
     <directives>
       <directive>--job-name={{ job_id }}</directive>
       <directive>--partition=hpg-default</directive>
-      <directive>--mail-type=END,FAIL</directive>
+      <directive>--mail-type=NONE</directive>
       <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
       <directive>--output={{ job_id }}</directive>
     </directives>

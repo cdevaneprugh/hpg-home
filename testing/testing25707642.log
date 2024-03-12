@@ -1,0 +1,34 @@
+/home/cdevaneprugh/testing
+c0706a-s3.ufhpc
+Tue Mar 12 12:19:33 EDT 2024
+No modules loaded
+loading gcc & python
+HPC_COMPILER_FAMILY=gnu
+HPC_GCC_DIR=/apps/compilers/gcc/12.2
+HPC_GCC_PYTHON_DIR=/apps/compilers/gcc/12.2/share/gcc-12.2.0/python
+HPC_PYTHON_BIN=/apps/gcc/12.2.0/python/3.11.5/bin
+HPC_PYTHON_DIR=/apps/gcc/12.2.0/python/3.11.5
+HPC_PYTHON_INC=/apps/gcc/12.2.0/python/3.11.5/include
+HPC_PYTHON_LIB=/apps/gcc/12.2.0/python/3.11.5/lib
+HPC_TMUX_BIN=/apps/tmux/3.1/bin
+HPC_TMUX_DIR=/apps/tmux/3.1
+loading openmpi
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) python/3.11
+
+HPC_COMPILER_FAMILY=gnu
+HPC_GCC_DIR=/apps/compilers/gcc/12.2
+HPC_GCC_PYTHON_DIR=/apps/compilers/gcc/12.2/share/gcc-12.2.0/python
+HPC_OPENMPI_BIN=/apps/mpi/gcc/12.2.0/openmpi/4.1.5/bin
+HPC_OPENMPI_DIR=/apps/mpi/gcc/12.2.0/openmpi/4.1.5
+HPC_OPENMPI_DOC=/apps/mpi/gcc/12.2.0/openmpi/4.1.5/share/openmpi
+HPC_OPENMPI_INC=/apps/mpi/gcc/12.2.0/openmpi/4.1.5/include
+HPC_PMIX=pmix_v3
+HPC_PYTHON_BIN=/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/bin
+HPC_PYTHON_DIR=/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5
+HPC_PYTHON_INC=/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/include
+HPC_PYTHON_LIB=/apps/gcc/12.2.0/openmpi/4.1.5/python/3.11.5/lib
+HPC_TMUX_BIN=/apps/tmux/3.1/bin
+HPC_TMUX_DIR=/apps/tmux/3.1
+Tue Mar 12 12:19:37 EDT 2024
