@@ -94,3 +94,4 @@ Their site suggests using gcc 12 and openmpi 4.1.5
 23. I think the best thing to do is actually ask the HPG support team to build current versions of netcdf-c and netcdf-f specifically with the gcc/12.2.0 compiler and openmpi/4.1.5.
 This would give us an environment that has all the needed netcdf libraries, lapack, blas, trilinos, and esmf if needed.
 Also gcc/12.2.0 is fully supported by e3sm. Having the same environment for both would simplify things greatly. 
+24. Just took another shot at setting up intel compiles. Got a library to build for the first time. It found netcdf-c and netcdf-f just fine. This might actually work going forward.

@@ -7,7 +7,7 @@
     <NODENAME_REGEX>c07*|login*</NODENAME_REGEX>
     
     <OS>LINUX</OS>
-    <COMPILERS>gnu</COMPILERS>
+    <COMPILERS>intel</COMPILERS>
     <MPILIBS>openmpi</MPILIBS>
  
     <!--input and output for cases, boundary conditions, etc-->
@@ -43,9 +43,15 @@
       <cmd_path lang="sh">module</cmd_path>
       <cmd_path lang="csh">module</cmd_path>
 
+    
+     <modules compiler="intel">
+       <command name="restore">intel_env</command>
+     </modules>
+<!--
      <modules compiler="gnu">
        <command name="restore">gcc12_env</command>
      </modules>
+-->
     </module_system>
 
     <environment_variables>

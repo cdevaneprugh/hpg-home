@@ -21,10 +21,10 @@
       <directive>--output={{ job_id }}</directive>
     </directives>
 
-    <!-- based on other machine configs, this should be named as your qos.
+    <!-- based on other machine configs, this can be named as your qos.
          we could set another queue to be the burst qos in the future -->
     <queues>
-      <queue walltimemax="24:00:00" default="true">gerber</queue>
+      <queue default="true">gerber</queue>
     </queues>
 
   </batch_system>
