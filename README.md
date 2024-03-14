@@ -82,3 +82,15 @@ Possible causes:
 
 18. Going to rework all .cime files. (go over them again and see if I missed anything)
 19. Also noticed a perl error. Going to maybe not load a perl module and see if default location covers it. There was also something in the default configs to define the perl location, maybe look at what that variable is.
+* this solved itself somewhow. not sure what happened. I checked and all perl libraries needed for cesm and e3sm are present.
+
+20. Had call with HPG support, they requested I submit a ticket so we could dig in to the problem in depth. They also suggested I try a conda environment to see if I could get things to play nicely together.
+I also tried updating the config files with the absolute paths, rather than relative ones. Still had no luck.
+21. After talking with Jim at the CESM discussion forum, he confirmed it is a fortran compiler and netcdf issue.
+22. Tried building an environment around gcc/8.2.0 with dedicated netcdf-c and netcdf-f libraries but had no luck.
+Got an error while loading a shared library libpmix.so.2. HPG site says it is no longer supported on current version of red hat.
+Hit the error when trying to compile a hello world fortran program with openmpi/4.0.1
+Their site suggests using gcc 12 and openmpi 4.1.5
+23. I think the best thing to do is actually ask the HPG support team to build current versions of netcdf-c and netcdf-f specifically with the gcc/12.2.0 compiler and openmpi/4.1.5.
+This would give us an environment that has all the needed netcdf libraries, lapack, blas, trilinos, and esmf if needed.
+Also gcc/12.2.0 is fully supported by e3sm. Having the same environment for both would simplify things greatly. 

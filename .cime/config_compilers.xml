@@ -8,9 +8,9 @@
   </LDFLAGS>
 
   <FFLAGS>
-    <append>-fallow-argument-mismatch -fallow-invalid-boz</append>
+    <append>-fallow-argument-mismatch -fallow-invalid-boz</append> <!--needed for newer gcc versions-->
   </FFLAGS>
-  
+ 
   <LAPACK_LIBDIR>/apps/gcc/12.2.0/lapack/3.11.0/lib</LAPACK_LIBDIR>
   <NETCDF_PATH>/apps/netcdf/4.7.2</NETCDF_PATH>
 
@@ -21,20 +21,21 @@
 </compiler>
 
 <!--for gcc/8.2.0 environment-->
-<!--
+<!-- ISSUES WITH MPI/4.0.1 COMPILING TEST PROGRAMS | LIBPMIX.SO.2 IS NOT SUPPORTED ON EL8
 <compiler COMPILER="gnu" MACH="hipergator">  
   <HDF5_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/hdf5/1.10.1</HDF5_PATH>
   <LAPACK_LIBDIR>/apps/gcc/8.2.0/lapack/3.8.0/lib</LAPACK_LIBDIR>
-  <NETCDF_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-c/4.6.1/</NETCDF_PATH>
-  <NETCDF_C_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-c/4.6.1/</NETCDF_C_PATH>
+  <NETCDF_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-c/4.6.1</NETCDF_PATH>
+  <NETCDF_C_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-c/4.6.1</NETCDF_C_PATH>
   <NETCDF_FORTRAN_PATH>/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-f/4.4.4</NETCDF_FORTRAN_PATH>
 
   <SLIBS>
-    <append>-L/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-c/4.6.1/lib -lnetcdf</append>
-    <append>-L/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-f/4.4.4/lib -lnetcdff</append>
+    <append>-L/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-c/4.6.1/lib64 -lnetcdf</append>
+    <append>-L/apps/gcc/8.2.0/openmpi/4.0.1/netcdf-f/4.4.4/lib64 -lnetcdff</append>
     <append>-L/apps/gcc/8.2.0/openmpi/4.0.1/hdf5/1.10.1/lib64 -lhdf5 -lhdf5_fortran -lhdf5_hl -lhdf5hl_fortran</append>
     <append>-L/apps/gcc/8.2.0/lapack/3.8.0/lib -llapack -lblas</append>
   </SLIBS>
 </compiler>
 -->
+
 </config_compilers>

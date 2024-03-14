@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <config_machines version="2.0">
   <machine MACH="hipergator">
-    <DESC>HiPerGator | partition: hpg-default | AMD ROME 128 cores per node | slurm scheduler | lmod module system</DESC>
+    <DESC>HiPerGator | hpg-default | AMD ROME 128 cores per node | slurm | lmod </DESC>
 
-    <!--should pick up any of the nodes on login, hpg-dev, and hpg-default-->
+    <!--matches nodes on login, hpg-dev, and hpg-default partitions-->
     <NODENAME_REGEX>c07*|login*</NODENAME_REGEX>
     
     <OS>LINUX</OS>
     <COMPILERS>gnu</COMPILERS>
-    <MPILIBS>openmpi,mpi-serial</MPILIBS>
+    <MPILIBS>openmpi</MPILIBS>
  
     <!--input and output for cases, boundary conditions, etc-->
     <CIME_OUTPUT_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cime_output_root</CIME_OUTPUT_ROOT>
@@ -21,12 +21,11 @@
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
     <SUPPORTED_BY>cdevaneprugh</SUPPORTED_BY>
 
-    <!-- MAX_TASKS_PER_NODE >= MAX_MPITASKS_PER_NODE 
-         set to number of cores available in your QOS-->
-    <MAX_TASKS_PER_NODE>20</MAX_TASKS_PER_NODE>
+    <!--set to number of cores available in your QOS-->
+    <MAX_TASKS_PER_NODE>20</MAX_TASKS_PER_NODE> <!--MAX_TASKS_PER_NODE >= MAX_MPITASKS_PER_NODE-->
     <MAX_MPITASKS_PER_NODE>20</MAX_MPITASKS_PER_NODE>
    
-    <!-- project name not required for hpg, usually used in systems for billing --> 
+    <!--project name not required for hpg, usually used in systems for billing-->
     <PROJECT_REQUIRED>FALSE</PROJECT_REQUIRED>
    
     <!--can add extra arguments if needed. ex: tasks = -np {number of tasks}--> 
@@ -34,11 +33,6 @@
       <executable>mpirun</executable>
     </mpirun>
 
-    <mpirun mpilib="mpi-serial">
-      <executable></executable>
-    </mpirun>
-
-    <!--dependent on how module system was set up-->    
     <module_system type="module" allow_error="true">
       <init_path lang="perl">/apps/lmod/lmod/init/perl</init_path>
       <init_path lang="python">/apps/lmod/lmod/init/env_modules_python.py</init_path>
@@ -52,16 +46,10 @@
      <modules compiler="gnu">
        <command name="restore">gcc12_env</command>
      </modules>
-
-     <modules compiler="gnu" mpilib="mpi-serial">
-       <command name="rm">openmpi/4.1.5</command>
-     </modules>
-
     </module_system>
 
     <environment_variables>
-      <!--L3 cache size of hpg-default processors-->
-      <env name="OMP_STACKSIZE">256M</env>
+      <env name="OMP_STACKSIZE">256M</env> <!--L3 cache size of hpg-default cpu-->
       <env name="PERL5LIB">/apps/perl/perls/perl-5.24.1/lib/site_perl/5.24.1:/apps/perl/perls/perl-5.24.1/lib/5.24.1</env>
     </environment_variables>
 
