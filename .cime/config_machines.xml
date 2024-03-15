@@ -16,15 +16,14 @@
     <DIN_LOC_ROOT_CLMFORC>/blue/gerber/cdevaneprugh/cesm_data_root/lmwg</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
     <BASELINE_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cesm_baselines</BASELINE_ROOT>
-    <CCSM_CPRNC>/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/tools/cprnc/cprnc</CCSM_CPRNC>
-    
+    <CCSM_CPRNC>/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/tools/cprnc/bld/cprnc</CCSM_CPRNC>
     <GMAKE>make</GMAKE>
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
     <SUPPORTED_BY>cdevaneprugh</SUPPORTED_BY>
 
     <!--set to number of cores available in your QOS-->
-    <MAX_TASKS_PER_NODE>20</MAX_TASKS_PER_NODE> <!--MAX_TASKS_PER_NODE >= MAX_MPITASKS_PER_NODE-->
-    <MAX_MPITASKS_PER_NODE>20</MAX_MPITASKS_PER_NODE>
+    <MAX_TASKS_PER_NODE>10</MAX_TASKS_PER_NODE> <!--MAX_TASKS_PER_NODE >= MAX_MPITASKS_PER_NODE-->
+    <MAX_MPITASKS_PER_NODE>10</MAX_MPITASKS_PER_NODE>
    
     <!--project name not required for hpg, usually used in systems for billing-->
     <PROJECT_REQUIRED>FALSE</PROJECT_REQUIRED>

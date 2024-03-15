@@ -95,3 +95,7 @@ Their site suggests using gcc 12 and openmpi 4.1.5
 This would give us an environment that has all the needed netcdf libraries, lapack, blas, trilinos, and esmf if needed.
 Also gcc/12.2.0 is fully supported by e3sm. Having the same environment for both would simplify things greatly. 
 24. Just took another shot at setting up intel compiles. Got a library to build for the first time. It found netcdf-c and netcdf-f just fine. This might actually work going forward.
+25. Running full regression test, there seems to be an issue with the cprnc tool not being present. I may just have to specify a path in the configs.
+I may also have to clone the repo and build it manually.
+26. Added cprnc path in config_machine.
+27. Cloned cprnc github repo and built from source. Regression tests now pass all but one test.
