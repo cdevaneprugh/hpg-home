@@ -16,7 +16,8 @@
     <DIN_LOC_ROOT_CLMFORC>/blue/gerber/cdevaneprugh/cesm_data_root/lmwg</DIN_LOC_ROOT_CLMFORC>
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
     <BASELINE_ROOT>/blue/gerber/cdevaneprugh/cesm_data_root/cesm_baselines</BASELINE_ROOT>
-    
+    <CCSM_CPRNC>/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/tools/cprnc/cprnc</CCSM_CPRNC>
+ 
     <GMAKE>make</GMAKE>
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
     <SUPPORTED_BY>cdevaneprugh</SUPPORTED_BY>
