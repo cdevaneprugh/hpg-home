@@ -9,6 +9,7 @@
     <submit_args>
       <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/>
       <arg flag="-q" name="$JOB_QUEUE"/>
+      <arg flag="--export=ALL"/>
     </submit_args>
 
 <!-- directives: A list of fields to provide in the script directives section,
@@ -19,7 +20,8 @@
       <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
     </directives>
 
-<!--job queue corresponds to desired qos. add another for burst if needed-->
+    <!-- based on other machine configs, this can be named as your qos.
+         we could set another queue to be the burst qos in the future -->
     <queues>
       <queue default="true">gerber</queue>
     </queues>
