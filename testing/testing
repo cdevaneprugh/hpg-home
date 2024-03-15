@@ -7,9 +7,12 @@
 #SBATCH --time=00:15:00               # Time limit hrs:min:sec
 #SBATCH --output=testing%j.log   # Standard output and error log
 #SBATCH --qos=gerber		      
+#SBATCH --partition=hpg-default
 
 pwd; hostname; date
 module list
-env | grep HPC | sort
-
+env | grep PERL
+module restore intel_env
+module list
+env | grep PERL
 date

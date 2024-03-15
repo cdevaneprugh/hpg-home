@@ -14,15 +14,12 @@
 <!-- directives: A list of fields to provide in the script directives section,
        be careful that these do not conflict with submit_args above -->
     <directives>
-      <directive>--job-name={{ job_id }}</directive>
       <directive>--partition=hpg-default</directive>
       <directive>--mail-type=NONE</directive>
       <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
-      <directive>--output={{ job_id }}</directive>
     </directives>
 
-    <!-- based on other machine configs, this can be named as your qos.
-         we could set another queue to be the burst qos in the future -->
+<!--job queue corresponds to desired qos. add another for burst if needed-->
     <queues>
       <queue default="true">gerber</queue>
     </queues>

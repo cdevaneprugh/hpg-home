@@ -1,0 +1,29 @@
+/home/cdevaneprugh/testing
+c0704a-s10.ufhpc
+Thu Mar 14 22:29:13 EDT 2024
+
+Currently Loaded Modules:
+  1) intel/2020.0.166   4) netcdf-f/4.6.1     7) libplplot/5.10.0
+  2) openmpi/4.1.5      5) subversion/1.9.7   8) perl/5.24.1
+  3) netcdf-c/4.9.2     6) cmake/3.26.4       9) python/3.11.4
+
+ 
+
+LMOD_FAMILY_PERL=perl
+LMOD_FAMILY_PERL_VERSION=5.24.1
+PERL5LIB=/apps/perl/perls/perl-5.24.1/lib/site_perl/5.24.1:/apps/perl/perls/perl-5.24.1/lib/5.24.1
+__LMOD_REF_COUNT_PERL5LIB=/apps/perl/perls/perl-5.24.1/lib/site_perl/5.24.1:1;/apps/perl/perls/perl-5.24.1/lib/5.24.1:1
+Restoring modules from user's intel_env
+
+Currently Loaded Modules:
+  1) intel/2020.0.166   4) netcdf-f/4.6.1     7) libplplot/5.10.0
+  2) openmpi/4.1.5      5) subversion/1.9.7   8) perl/5.24.1
+  3) netcdf-c/4.9.2     6) cmake/3.26.4       9) python/3.11.4
+
+ 
+
+LMOD_FAMILY_PERL=perl
+LMOD_FAMILY_PERL_VERSION=5.24.1
+PERL5LIB=/apps/perl/perls/perl-5.24.1/lib/site_perl/5.24.1:/apps/perl/perls/perl-5.24.1/lib/5.24.1
+__LMOD_REF_COUNT_PERL5LIB=/apps/perl/perls/perl-5.24.1/lib/site_perl/5.24.1:1;/apps/perl/perls/perl-5.24.1/lib/5.24.1:1
+Thu Mar 14 22:29:18 EDT 2024

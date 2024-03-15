@@ -2,7 +2,7 @@
 <config_compilers version="2.0">
 
 <!--for gcc/12.2.0 environment-->
-<!--
+<!--NEED NETCDF LIBRARIES INSTALLED WITH GCC/12.2.0 FOR THIS TO WORK
 <compiler COMPILER="gnu" MACH="hipergator">
   <LDFLAGS>
     <append>-I/apps/netcdf/4.7.2/include</append>
@@ -24,13 +24,13 @@
 
 <!--for intel/2020.0.166 environment-->
 <compiler COMPILER="intel" MACH="hipergator">
-  <NETCDF_PATH>/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-c/4.9.2</NETCDF_PATH>
-  <NETCDF_C_PATH>/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-c/4.9.2</NETCDF_C_PATH>
-  <NETCDF_FORTRAN_PATH>/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-f/4.6.1</NETCDF_FORTRAN_PATH>
 
   <SLIBS>
+    <!--append netcdf c and fortran libraries using absolute path-->
     <append>-L/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-c/4.9.2/lib -lnetcdf</append>
     <append>-L/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-f/4.6.1/lib -lnetcdff</append>
+
+    <!--may need to add lapack & blas libraries. they use gcc, could run into issues-->
   </SLIBS>
 
 </compiler>
