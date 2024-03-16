@@ -47,11 +47,7 @@
      <modules compiler="intel">
        <command name="restore">intel_env</command>
      </modules>
-<!--
-     <modules compiler="gnu">
-       <command name="restore">gcc12_env</command>
-     </modules>
--->
+
     </module_system>
 
     <environment_variables>
