@@ -1,3 +1,3 @@
 #!/bin/bash
 
-srun --partition=hpg-dev --mem=8gb --time=4:00:00 --pty bash -i
+srun --partition=hpg-dev --mem=8gb --time=12:00:00 --pty bash -i
