@@ -99,3 +99,6 @@ Also gcc/12.2.0 is fully supported by e3sm. Having the same environment for both
 I may also have to clone the repo and build it manually.
 26. Added cprnc path in config_machine.
 27. Cloned cprnc github repo and built from source. Regression tests now pass all but one test.
+* Test passed when run individually.
+28. Moved on to building cesm in a shared group folder. Keeping more detailed instructions in a file in that directory.
+* Goal is to have a shared folder for all earth models cesm and e3sm
