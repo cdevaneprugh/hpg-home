@@ -10,10 +10,10 @@
 <!-- submit_args: A list of arguments to pass when submitting a job, queue, wallclock time and project are typical sub fields -->
     <submit_args>
 
-      <!--job run time-->
+      <!--max job run time-->
       <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/>
 
-      <!--job queue is determined by quality of service selected-->
+      <!--$JOB_QUEUE is determined by quality of service selected-->
       <arg flag="-q" name="$JOB_QUEUE"/>
 
       <!--exports all environment variables from login node to compute node-->
@@ -26,7 +26,6 @@
 
       <!--only set up to run on hpg-default for now-->
       <directive>--partition=hpg-default</directive>
-
       <directive>--mail-type=ALL</directive>
       <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
     </directives>

@@ -132,4 +132,7 @@ This seemed to work for the ECT tests, but the POP tests still failed on the com
 
 * They were not able to be verified by the cesm tool as it said v2.1.5 was not supported. I wonder if that tool is still only set up to go to v2.1.3
 
-31. I notified the CESM people of this and they said this was an issue on their end, they're looking to fix it now. 
+31. I notified the CESM people of this and they said this was an issue on their end, they're looking to fix it now.
+32. CESM team fixed the verification tool, it appears that our UF-ECT tests passed even though some of the components were out of spec.
+33. With netcdf-f support added with gcc, we can proceed with gnu support.
+* Initial tests look promising. Still need to run the full regression tests.
