@@ -102,3 +102,34 @@ I may also have to clone the repo and build it manually.
 * Test passed when run individually.
 28. Moved on to building cesm in a shared group folder. Keeping more detailed instructions in a file in that directory.
 * Goal is to have a shared folder for all earth models cesm and e3sm
+29. With the regression scripts passed I can move on to verification of the port by running the ect tests.
+* Had issues with the tests. The POP test seems to fail somewhere in the compute node. Additionally, the nco tool can't seem to add metadata to the .nc files after the runs are completed.
+* Going to check to see if our netcdf versions are compatible with our nco version
+* I should take another look at seeing if the lapack libraries need to be linked in the compiler config files.
+30. Set up a conda environment with a newer version of nco and python 3.8 and was able to add metadata to the .nc files.
+
+Following from https://www.cesm.ucar.edu/models/cesm2/python-tools
+
+Had to load python-core/2.7.14 as python3 is not compatible wih script.
+
+Generate three runs for CAM and one for POP
+
+UF-CAM-ECT
+
+python ensemble.py --case /blue/gerber/cdevaneprugh/earth_model_output/cime_output_root/case.cesm_tag.uf.000 --ect cam --uf --mach hipergator --compset F2000climo --res f19_f19_mg17 --compiler intel
+
+POP-ECT
+
+python ensemble.py --case /blue/gerber/cdevaneprugh/earth_model_output/cime_output_root/popcase.cesm_tag.000 --ect pop --mach hipergator --compset G --res T62_g17 --compiler intel
+
+Add metadata to files
+
+./addmetadata.sh --caseroot /blue/gerber/cdevaneprugh/earth_model_output/cime_output_root/case.esm_tag.uf.000 --histfile /blue/gerber/cdevaneprugh/earth_model_output/cime_output_root/case.cesm_tag.uf.000/run/case.cesm_tag.uf.000.cam.h0.0001-01-01-00000.nc
+
+Had issues with the case not being submitted due to QOS limits. Lowered max tasks to 10 in the machine config files.
+
+This seemed to work for the ECT tests, but the POP tests still failed on the compute node.
+
+* They were not able to be verified by the cesm tool as it said v2.1.5 was not supported. I wonder if that tool is still only set up to go to v2.1.3
+
+31. I notified the CESM people of this and they said this was an issue on their end, they're looking to fix it now. 

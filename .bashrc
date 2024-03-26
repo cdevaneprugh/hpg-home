@@ -16,6 +16,6 @@ export PATH
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-export BLUEHOME=/blue/gerber/cdevaneprugh
+export BLUE=/blue/gerber/cdevaneprugh
 #export CIMETESTING=/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/scripts/tests
 #export CIMEROOT=/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime

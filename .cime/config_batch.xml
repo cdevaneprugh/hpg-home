@@ -27,7 +27,7 @@
       <!--only set up to run on hpg-default for now-->
       <directive>--partition=hpg-default</directive>
 
-      <directive>--mail-type=NONE</directive>
+      <directive>--mail-type=ALL</directive>
       <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
     </directives>
 

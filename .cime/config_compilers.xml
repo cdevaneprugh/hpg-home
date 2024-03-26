@@ -2,25 +2,22 @@
 <config_compilers version="2.0">
 
 <!--for gcc/12.2.0 environment-->
-<!--
 <compiler COMPILER="gnu" MACH="hipergator">
-  <LDFLAGS>
-    <append>-I/apps/netcdf/4.7.2/include</append>
-  </LDFLAGS>
-
   <FFLAGS>
-    <append>-fallow-argument-mismatch -fallow-invalid-boz</append> 
+    <append>-fallow-argument-mismatch -fallow-invalid-boz</append>
   </FFLAGS>
- 
+
   <LAPACK_LIBDIR>/apps/gcc/12.2.0/lapack/3.11.0/lib</LAPACK_LIBDIR>
-  <NETCDF_PATH>/apps/netcdf/4.7.2</NETCDF_PATH>
+  <NETCDF_PATH>/apps/gcc/12.2.0/openmpi/4.1.5/netcdf-c/4.9.2</NETCDF_PATH>
+  <NETCDF_C_PATH>/apps/gcc/12.2.0/openmpi/4.1.5/netcdf-c/4.9.2</NETCDF_C_PATH>
+  <NETCDF_FORTRAN_PATH>/apps/gcc/12.2.0/openmpi/4.1.5/netcdf-f/4.6.1</NETCDF_FORTRAN_PATH>
 
   <SLIBS>
-    <append>-L/apps/netcdf/4.7.2/lib -lnetcdf -lnetcdff</append> 
-    <append>-L/apps/gcc/12.2.0/lapack/3.11.0/lib -llapack -lblas</append>
+    <append>-L$(NETCDF_PATH)/lib -lnetcdf</append>
+    <append>-L$(NETCDF_FORTRAN_PATH)/lib -lnetcdff</append>
+    <append>-L$(LAPACK_LIBDIR) -llapack -lblas</append>
   </SLIBS>
 </compiler>
--->
 
 <!--for intel/2020.0.166 environment-->
 <compiler COMPILER="intel" MACH="hipergator">
@@ -35,8 +32,8 @@
   <SLIBS>
     <append>-L$(NETCDF_PATH)/lib -lnetcdf</append>
     <append>-L$(NETCDF_FORTRAN_PATH)/lib -lnetcdff</append>
-    <!-- NEED TO CROSS CHECK OTHER CONFIG FILES AND SEE WHICH MKL LIBS ARE TYPICALLY LINKED
-    <append>-L$(LAPACK_LIBDIR) -llapack -lblas</append>-->
+    <!-- NEED TO CROSS CHECK OTHER CONFIG FILES AND SEE WHICH MKL LIBS ARE TYPICALLY LINKED -->
+    <!--<append>-L$(LAPACK_LIBDIR) -llapack -lblas</append>-->
   </SLIBS>
 
 </compiler>

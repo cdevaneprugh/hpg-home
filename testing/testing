@@ -10,9 +10,7 @@
 #SBATCH --partition=hpg-default
 
 pwd; hostname; date
+module purge
+module restore gnu_env
 module list
-env | grep PERL
-module restore intel_env
-module list
-env | grep PERL
 date
