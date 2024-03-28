@@ -3,36 +3,43 @@
 
   <batch_system MACH="hipergator" type="slurm">
     
-    <!--submit command-->
+    <!--Job submit command-->
     <batch_submit>sbatch</batch_submit>
+   
+    <!--Mail types accepted-->
     <batch_mail_type>NONE, BEGIN, END, FAIL, ALL</batch_mail_type>
 
-<!-- submit_args: A list of arguments to pass when submitting a job, queue, wallclock time and project are typical sub fields -->
+    <!--Arguments to pass when submitting a job, queue, wallclock time are typical fields -->
     <submit_args>
 
-      <!--max job run time-->
+      <!--Max job run time-->
       <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/>
-
-      <!--$JOB_QUEUE is determined by quality of service selected-->
+ 
+      <!--Determined by quality of service (queue) selected-->   
       <arg flag="-q" name="$JOB_QUEUE"/>
-
-      <!--exports all environment variables from login node to compute node-->
+     
+      <!--Exports all env vars from login node to compute node-->
       <arg flag="--export=ALL"/>
+
     </submit_args>
 
-<!-- directives: A list of fields to provide in the script directives section,
-       be careful that these do not conflict with submit_args above -->
+    <!--slurm script directives section, be careful that these do not conflict with submit_args above -->
     <directives>
 
-      <!--only set up to run on hpg-default for now-->
+      <!--Only run on hpg-default nodes for now-->
       <directive>--partition=hpg-default</directive>
-      <directive>--mail-type=ALL</directive>
+      
+      <!--User defined mail settings-->
+      <directive>--mail-type=END,FAIL</directive>
       <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
+
     </directives>
 
-<!-- queues: these correspond to the QOS you want to use for the job-->
+    <!--These correspond to the QOS you want to use for the job-->
     <queues>
-      <queue default="true">gerber</queue>
+      <!--jobmin/max: The min/max task count to use with this queue. This is used to select queues that only use a fraction of a node. This cannot be used in conjuction with nodemin/max.-->
+      <queue jobmin="1" jobmax="20" default="true">gerber</queue><!--Default QOS-->
+      <queue jobmin="1" jobmax="128">gerber-b</queue><!--Burst QOS-->
     </queues>
 
   </batch_system>

@@ -136,3 +136,26 @@ This seemed to work for the ECT tests, but the POP tests still failed on the com
 32. CESM team fixed the verification tool, it appears that our UF-ECT tests passed even though some of the components were out of spec.
 33. With netcdf-f support added with gcc, we can proceed with gnu support.
 * Initial tests look promising. Still need to run the full regression tests.
+34. Full regression tests are passed. I ran the UF-CAM-ECT tests and just need to verify them on the website or with the local tool. Havent ran the POP-ECT test yet as it takes awhile to complete (~6 hrs).
+35. Max tasks/core usage issue. Currently having an issue with CIME trying to request way too many cores from the scheduler. 
+Ideally it should be set up so that in config_machines.xml, max tasks per node should be set at the number of cores on the hpg-default compute node (128 cores per node). 
+Then in config_batch.xml jobmax for the default queue should be set at our max number of cores in the qos. The burst queue should then have jobmax equal the number of max cores in our burst qos.
+
+The issue that's happening is that CIME keeps asking for 128 cores (or sometimes two full nodes of 128 cores) to run the regression and ECT tests.
+I don't know if this is just the testing suite that will do this, and when we build our own experiments we won't have any issues, or if this will be a constant problem.
+
+The temporary solution I have now is to set the max tasks tag in h config_machines.xml to be half of our default qos (10 cores).
+This lets CIME ask for 2 nodes of 10 cores and the tests will run just fine.
+
+Someting I should try is to change the config files to the way they should be set up (128 cores/node in config_machines) and then manually change the amount of cores & nodes using ./xmlchange before running the case.
+Running the regression tests should go something like:
+
+`$ ./script_regression_tests --no-batch`
+
+`$ cd cime_output_root`
+
+`$ ./xmlchange cores nodes etc`
+
+`$ ./case.submit`
+
+For the ECT tests I may have to scancel the tests as they automatically get submitted. Then I can adjust the number of nodes and resubmit.

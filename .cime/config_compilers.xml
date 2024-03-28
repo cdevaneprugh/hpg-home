@@ -24,25 +24,19 @@
   </SLIBS>
 </compiler>
 
+
 <!--for intel/2020.0.166 environment-->
 <compiler COMPILER="intel" MACH="hipergator">
 
   <NETCDF_PATH>/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-c/4.9.2</NETCDF_PATH>
   <NETCDF_C_PATH>/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-c/4.9.2</NETCDF_C_PATH>
   <NETCDF_FORTRAN_PATH>/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-f/4.6.1</NETCDF_FORTRAN_PATH>
-  
-  <!--MAY NOT NEED THIS, INTEL MAY LINK THIS AUTOMATICALLY-->
-  <!--<LAPACK_LIBDIR>/apps/compilers/intel/2020/0.166/mkl/lib/intel64</LAPACK_LIBDIR>-->
 
   <!--link netcdf & netcdf-f libraries-->
   <SLIBS>
     <append>-L$(NETCDF_PATH)/lib -lnetcdf</append>
     <append>-L$(NETCDF_FORTRAN_PATH)/lib -lnetcdff</append>
-
-    <!--CHECK OTHER CONFIG FILES AND SEE WHICH MKL LIBS ARE TYPICALLY LINKED IF NEEDED-->
-    <!--<append>-L$(LAPACK_LIBDIR) -llapack -lblas</append>-->
   </SLIBS>
-
 </compiler>
 
 </config_compilers>

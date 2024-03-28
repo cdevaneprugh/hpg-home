@@ -26,7 +26,7 @@
     <!--system test baseline files-->
     <BASELINE_ROOT>/blue/gerber/$ENV{USER}/earth_model_output/cesm_baselines</BASELINE_ROOT>
     
-    <!--cprnc executable location-->
+    <!--cprnc executable location, built with gcc/12.2.0 may not work with intel built netcdf files-->
     <CCSM_CPRNC>/blue/gerber/earth_models/cesm215/cime/tools/cprnc/bld/cprnc</CCSM_CPRNC>
 
     <!--can also add number of threads to pass to make with GMAKE_J tag (optional)-->
@@ -37,9 +37,9 @@
 
     <SUPPORTED_BY>sgerber</SUPPORTED_BY>
 
-    <!--set to number of cores available in your QOS-->
-    <MAX_TASKS_PER_NODE>10</MAX_TASKS_PER_NODE> <!--MAX_TASKS_PER_NODE >= MAX_MPITASKS_PER_NODE-->
-    <MAX_MPITASKS_PER_NODE>10</MAX_MPITASKS_PER_NODE>
+    <!--number of cores per node on hpg-default-->
+    <MAX_TASKS_PER_NODE>128</MAX_TASKS_PER_NODE> <!--MAX_TASKS_PER_NODE >= MAX_MPITASKS_PER_NODE-->
+    <MAX_MPITASKS_PER_NODE>128</MAX_MPITASKS_PER_NODE>
    
     <!--project name not required for hpg, usually used in systems for account billing-->
     <PROJECT_REQUIRED>FALSE</PROJECT_REQUIRED>
@@ -60,19 +60,34 @@
       <cmd_path lang="sh">module</cmd_path>
       <cmd_path lang="csh">module</cmd_path>
 
-    <!--restores collection of modules, may choose to load individual ones later-->
-    <modules compiler="gnu">
-      <command name="restore">gnu_env</command>
+    <!--Load for both compilers-->
+    <modules>
+      <command name="load">cmake/3.26.4</command>
+      <command name="load">perl/5.24.1</command>
     </modules>
 
+    <!--Load for gnu compiler-->
+    <modules compiler="gnu">
+      <command name="load">gcc/12.2.0</command>
+      <command name="load">gcc/12.2.0 openmpi/4.1.5</command>
+      <command name="load">gcc/12.2.0 openmpi/4.1.5 python/3.11</command>
+      <command name="load">gcc/12.2.0 openmpi/4.1.5 netcdf-c/4.9.2</command>
+      <command name="load">gcc/12.2.0 openmpi/4.1.5 netcdf-f/4.6.1</command>
+    </modules>
+
+    <!--Load for intel compiler-->
     <modules compiler="intel">
-      <command name="restore">intel_env</command>
+      <command name="load">intel/2020.0.166</command>
+      <command name="load">intel/2020.0.166 python/3.11.4</command>
+      <command name="load">intel/2020.0.166 openmpi/4.1.5</command>
+      <command name="load">intel/2020.0.166 openmpi/4.1.5 netcdf-c/4.9.2</command>
+      <command name="load">intel/2020.0.166 openmpi/4.1.5 netcdf-f/4.6.1</command>
     </modules>
 
     </module_system>
 
     <environment_variables>
-      <env name="OMP_STACKSIZE">256M</env> <!--L3 cache size of hpg-default cpu-->
+      <env name="OMP_STACKSIZE">256M</env><!--L3 cache size of hpg-default cpu-->
     </environment_variables>
 
     <resource_limits>
