@@ -12,7 +12,10 @@
     <!--comment separated with default first-->
     <COMPILERS>gnu,intel</COMPILERS>
     <MPILIBS>openmpi</MPILIBS>
- 
+   
+    <!--for e3sm only--> 
+    <SAVE_TIMING_DIR>/blue/gerber/$ENV{USER}/earth_model_output/timings</SAVE_TIMING_DIR>
+    
     <!--root directory for case output. should be in the user's /blue storage space-->
     <CIME_OUTPUT_ROOT>/blue/gerber/$ENV{USER}/earth_model_output/cime_output_root</CIME_OUTPUT_ROOT>
     
@@ -27,7 +30,7 @@
     <BASELINE_ROOT>/blue/gerber/$ENV{USER}/earth_model_output/cesm_baselines</BASELINE_ROOT>
     
     <!--cprnc executable location, built with gcc/12.2.0 may not work with intel built netcdf files-->
-    <CCSM_CPRNC>/blue/gerber/earth_models/cesm215/cime/tools/cprnc/bld/cprnc</CCSM_CPRNC>
+    <CCSM_CPRNC>/blue/gerber/earth_models/cprnc/bld/cprnc</CCSM_CPRNC>
 
     <!--can also add number of threads to pass to make with GMAKE_J tag (optional)-->
     <GMAKE>make</GMAKE>
@@ -69,6 +72,7 @@
     <!--Load for gnu compiler-->
     <modules compiler="gnu">
       <command name="load">gcc/12.2.0</command>
+      <command name="load">gcc/12.2.0 lapack/3.11.0</command>
       <command name="load">gcc/12.2.0 openmpi/4.1.5</command>
       <command name="load">gcc/12.2.0 openmpi/4.1.5 python/3.11</command>
       <command name="load">gcc/12.2.0 openmpi/4.1.5 netcdf-c/4.9.2</command>
@@ -85,6 +89,10 @@
     </modules>
 
     </module_system>
+
+    <!--case build and run directories-->
+    <RUNDIR>$CIME_OUTPUT_ROOT/$CASE/run</RUNDIR>
+    <EXEROOT>$CIME_OUTPUT_ROOT/$CASE/bld</EXEROOT>
 
     <environment_variables>
       <env name="OMP_STACKSIZE">256M</env><!--L3 cache size of hpg-default cpu-->

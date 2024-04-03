@@ -159,3 +159,14 @@ Running the regression tests should go something like:
 `$ ./case.submit`
 
 For the ECT tests I may have to scancel the tests as they automatically get submitted. Then I can adjust the number of nodes and resubmit.
+
+36. I reran ect experiments by adding the --ns option and not automatically submitting the tests.
+This allowed me to adjust the number of tasks and nodes used so it would match our QOS.
+Everything got ran on the burst QOS.
+I ended up running tests for intel and gnu compilers.
+
+See the ect_notes for more info.
+
+37. Now that all the tests are ran I need to figure out how to validate it. The cesm website times out. There might be a way to do this locally.
+
+I'll check to see if I can find a better internet connection to upload the files. Maybe through hipergator and sftp?

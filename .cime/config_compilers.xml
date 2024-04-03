@@ -18,8 +18,9 @@
 
   <!--link netcdf, netcdf-f, lapack, and blas libraries-->
   <SLIBS>
-    <append>-L$(NETCDF_PATH)/lib64 -lnetcdf</append>
-    <append>-L$(NETCDF_FORTRAN_PATH)/lib -lnetcdff</append>
+<!--    <append>-L$(NETCDF_PATH)/lib64 -lnetcdf</append>
+    <append>-L$(NETCDF_FORTRAN_PATH)/lib -lnetcdff</append>-->
+    <append>$SHELL{/apps/gcc/12.2.0/openmpi/4.1.5/netcdf-f/4.6.1/bin/nf-config --flibs}</append>
     <append>-L$(LAPACK_LIBDIR) -llapack -lblas</append>
   </SLIBS>
 </compiler>
@@ -34,8 +35,9 @@
 
   <!--link netcdf & netcdf-f libraries-->
   <SLIBS>
-    <append>-L$(NETCDF_PATH)/lib -lnetcdf</append>
-    <append>-L$(NETCDF_FORTRAN_PATH)/lib -lnetcdff</append>
+<!--    <append>-L$(NETCDF_PATH)/lib -lnetcdf</append>
+    <append>-L$(NETCDF_FORTRAN_PATH)/lib -lnetcdff</append>-->
+    <append>$SHELL{/apps/intel/2020.0.166/openmpi/4.1.5/netcdf-f/4.6.1/bin/nf-config --flibs}</append>
   </SLIBS>
 </compiler>
 
