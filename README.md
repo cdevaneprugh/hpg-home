@@ -170,3 +170,10 @@ See the ect_notes for more info.
 37. Now that all the tests are ran I need to figure out how to validate it. The cesm website times out. There might be a way to do this locally.
 
 I'll check to see if I can find a better internet connection to upload the files. Maybe through hipergator and sftp?
+
+38. Tried using the OOD interface to upload the files.
+* had to install firefox in a conda environment 
+* seems to be an issue with the files? or possibly the interface? It successfully uploads and looks like it verifies, but then I just get a blank box with no info. This makes me think something is up with the files.
+* Going to try to rerun the tests on fewer cores, as well as not messing with the run layout.
+
+39. Used OOD and conda to install the chromium web browser. Then uploaded the files to be verified through that. Good news is everything passed.

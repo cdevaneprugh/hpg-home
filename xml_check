@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo ""
+echo "Checking CESM Schema"
+xmllint --noout --schema /blue/gerber/earth_models/cesm215/cime/config/xml_schemas/config_batch.xsd ~/.cime/config_batch.xml 
+xmllint --noout --schema /blue/gerber/earth_models/cesm215/cime/config/xml_schemas/config_compilers_v2.xsd ~/.cime/config_compilers.xml 
+xmllint --noout --schema /blue/gerber/earth_models/cesm215/cime/config/xml_schemas/config_machines.xsd ~/.cime/config_machines.xml 
+
+echo ""
+echo "Checking E3SM Schema"
+xmllint --noout --schema /blue/gerber/earth_models/e3sm/cime/config/xml_schemas/config_batch.xsd ~/.cime/config_batch.xml
+xmllint --noout --schema /blue/gerber/earth_models/e3sm/cime/config/xml_schemas/config_compilers_v2.xsd ~/.cime/config_compilers.xml
+xmllint --noout --schema /blue/gerber/earth_models/e3sm/cime/config/xml_schemas/config_machines.xsd ~/.cime/config_machines.xml

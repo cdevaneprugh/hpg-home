@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config_machines version="2.0">
   <machine MACH="hipergator">
-    <DESC>HiPerGator | AMD ROME 128 cores per node | slurm | lmod</DESC>
+    <DESC>HiPerGator | hpg-default node | AMD ROME 128 cores per node | slurm</DESC>
 
-    <!--matches nodes on login, hpg-dev, and hpg-default partitions-->
+    <!--regex matches login, hpg-dev, and hpg-default nodes-->
     <NODENAME_REGEX>c07*|login*</NODENAME_REGEX>
    
     <!--Red Hat Enterprise Linux 8.8 (Ootpa)--> 
@@ -16,7 +16,7 @@
     <!--for e3sm only--> 
     <SAVE_TIMING_DIR>/blue/gerber/$ENV{USER}/earth_model_output/timings</SAVE_TIMING_DIR>
     
-    <!--root directory for case output. should be in the user's /blue storage space-->
+    <!--root directory for case output. should be in the user's /blue storage, NOT in shared space-->
     <CIME_OUTPUT_ROOT>/blue/gerber/$ENV{USER}/earth_model_output/cime_output_root</CIME_OUTPUT_ROOT>
     
     <!--input data should be shared between all users in the group-->
@@ -29,18 +29,18 @@
     <!--system test baseline files-->
     <BASELINE_ROOT>/blue/gerber/$ENV{USER}/earth_model_output/cesm_baselines</BASELINE_ROOT>
     
-    <!--cprnc executable location, built with gcc/12.2.0 may not work with intel built netcdf files-->
+    <!--cprnc executable location, built with gcc/12.2.0 may not work with intel built experiments-->
     <CCSM_CPRNC>/blue/gerber/earth_models/cprnc/bld/cprnc</CCSM_CPRNC>
 
-    <!--can also add number of threads to pass to make with GMAKE_J tag (optional)-->
+    <!--make program. can also add number of threads to pass to make with GMAKE_J tag (optional)-->
     <GMAKE>make</GMAKE>
 
     <!--for scheduler documentation: https://slurm.schedmd.com/documentation.html-->
     <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
 
-    <SUPPORTED_BY>sgerber</SUPPORTED_BY>
+    <SUPPORTED_BY>cdevaneprugh@ufl.edu</SUPPORTED_BY>
 
-    <!--number of cores per node on hpg-default-->
+    <!--number of cores per node on hpg-default partition-->
     <MAX_TASKS_PER_NODE>128</MAX_TASKS_PER_NODE> <!--MAX_TASKS_PER_NODE >= MAX_MPITASKS_PER_NODE-->
     <MAX_MPITASKS_PER_NODE>128</MAX_MPITASKS_PER_NODE>
    
@@ -90,16 +90,12 @@
 
     </module_system>
 
-    <!--case build and run directories-->
-    <RUNDIR>$CIME_OUTPUT_ROOT/$CASE/run</RUNDIR>
-    <EXEROOT>$CIME_OUTPUT_ROOT/$CASE/bld</EXEROOT>
-
     <environment_variables>
-      <env name="OMP_STACKSIZE">256M</env><!--L3 cache size of hpg-default cpu-->
+      <env name="OMP_STACKSIZE">256M</env> <!--L3 cache size of hpg-default cpu-->
     </environment_variables>
 
     <resource_limits>
-      <resource name="RLIMIT_STACK">-1</resource>
+      <resource name="RLIMIT_STACK">-1</resource> <!--python resource limit-->
     </resource_limits>
 
   </machine>
