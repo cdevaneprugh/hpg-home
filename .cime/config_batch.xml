@@ -1,66 +1,49 @@
 <?xml version="1.0"?>
 <config_batch version="2.1">
 
-  <batch_system type="slurm" >
-    <batch_query per_job_arg="-j">squeue</batch_query>
-    <batch_submit>sbatch</batch_submit>
-    <batch_cancel>scancel</batch_cancel>
-    <batch_directive>#SBATCH</batch_directive>
-    <jobid_pattern>(\d+)$</jobid_pattern>
-    <depend_string>--dependency=afterok:jobid</depend_string>
-    <depend_allow_string>--dependency=afterany:jobid</depend_allow_string>
-    <depend_separator>,</depend_separator>
-    <walltime_format>%H:%M:%S</walltime_format>
-    <batch_mail_flag>--mail-user</batch_mail_flag>
-    <batch_mail_type_flag>--mail-type</batch_mail_type_flag>
-    <batch_mail_type>NONE, ALL, BEGIN, END, FAIL</batch_mail_type>
-    <submit_args>
-      <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/>
-      <arg flag="-q" name="$JOB_QUEUE"/>
-      <arg flag="--export=ALL"/>
-    </submit_args>
-    <directives>
-      <directive> --job-name={{ job_id }}</directive>
-      <directive> --nodes={{ num_nodes }}</directive>
-      <directive> --ntasks-per-node={{ tasks_per_node }}</directive>
-      <directive> --output={{ job_id }}.%j </directive>
-    </directives>
-  </batch_system>
-
   <batch_system MACH="hipergator" type="slurm">
+    
+    <!--Job submit command-->
+    <batch_submit>sbatch</batch_submit>
+   
+    <depend_separator>,</depend_separator>
+
+    <!--Mail types accepted-->
+    <batch_mail_type>NONE, BEGIN, END, FAIL, ALL</batch_mail_type>
+
+    <!--Arguments to pass when submitting a job, queue, wallclock time are typical fields -->
+    <submit_args>
+
+      <!--Max job run time-->
+      <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/>
+ 
+      <!--Determined by quality of service (queue) selected-->   
+      <arg flag="-q" name="$JOB_QUEUE"/>
+     
+      <!--Exports all env vars from login node to compute node-->
+      <arg flag="--export=ALL"/>
+
+    </submit_args>
+
+    <!--slurm script directives section, be careful that these do not conflict with submit_args above -->
     <directives>
+
+      <!--Only run on hpg-default nodes for now-->
       <directive>--partition=hpg-default</directive>
+      
+      <!--User defined mail settings-->
       <directive>--mail-type=END,FAIL</directive>
       <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
+
     </directives>
+
+    <!--These correspond to the QOS you want to use for the job-->
     <queues>
+      <!--jobmin/max: The min/max task count to use with this queue. This is used to select queues that only use a fraction of a node. This cannot be used in conjuction with nodemin/max.-->
       <queue jobmin="1" jobmax="20" default="true">gerber</queue><!--Default QOS-->
       <queue jobmin="1" jobmax="128">gerber-b</queue><!--Burst QOS-->
     </queues>
-  </batch_system>
 
-  <batch_jobs>
-    <!-- order matters, with no-batch jobs will be run in the order listed here -->
-    <job name="case.run">
-      <template>template.case.run</template>
-      <prereq>$BUILD_COMPLETE and not $TEST</prereq>
-    </job>
-    <job name="case.run.sh">
-      <template>template.case.run.sh</template>
-      <prereq>False</prereq>
-    </job>
-   <job name="case.test">
-      <template>template.case.test</template>
-      <prereq>$BUILD_COMPLETE and $TEST</prereq>
-    </job>
-    <job name="case.st_archive">
-      <template>template.st_archive</template>
-      <task_count>1</task_count>
-      <walltime>0:20:00</walltime>
-      <!-- If DOUT_S is true and case.run (or case.test) exits successfully then run st_archive-->
-      <dependency>case.run case.test</dependency>
-      <prereq>$DOUT_S</prereq>
-    </job>
-  </batch_jobs>
+  </batch_system>
 
 </config_batch>
