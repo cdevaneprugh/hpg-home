@@ -177,3 +177,6 @@ I'll check to see if I can find a better internet connection to upload the files
 * Going to try to rerun the tests on fewer cores, as well as not messing with the run layout.
 
 39. Used OOD and conda to install the chromium web browser. Then uploaded the files to be verified through that. Good news is everything passed.
+40. Modified batch config to validate with cesm and e3sm xml schema. Made significant changes. Need to check that both still work.
+41. Issues with e3sm. Putting that off until this summer.
+42. clmforce directory needed to be updated in config_machines. It has to match the file structure on the servers it's downloading from.

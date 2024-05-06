@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config_compilers version="2.0">
 
+<!--
+Nothing in this config should need to be changed by users unless the location of a library changes on the machine. Absolute paths are used now, but could be changed to the env vars set by hipergator.
+To see what env vars are set, use the `env` command once all your desired modules are loaded. You can also use grep to narrow your search to variables corresponding to your loaded modules.
+For example, the command `env | grep HPC | sort` will list the env vars that correspond to all modules you loaded, and sort them alphabetically. 
+-->     
+
 <!--for gcc/12.2.0 environment-->
 <compiler COMPILER="gnu" MACH="hipergator">
 
-  <!--needed for newer gcc versions-->
+  <!--fflags needed for gcc v10 or newer-->
   <FFLAGS>
     <append>-fallow-argument-mismatch -fallow-invalid-boz</append>
   </FFLAGS>
 
-  <!--Using absolute paths for now, could update to env vars that HPG sets when loading modules if needed.
-      It seems these paths must be here in addition to linking libraries in SLIBS for CIME to build a case-->
+  <!--These paths must be here in addition to linking libraries in SLIBS for CIME to build a case-->
   <LAPACK_LIBDIR>/apps/gcc/12.2.0/lapack/3.11.0/lib</LAPACK_LIBDIR>
   <NETCDF_PATH>/apps/gcc/12.2.0/openmpi/4.1.5/netcdf-c/4.9.2</NETCDF_PATH>
   <NETCDF_C_PATH>/apps/gcc/12.2.0/openmpi/4.1.5/netcdf-c/4.9.2</NETCDF_C_PATH>

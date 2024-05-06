@@ -13,6 +13,8 @@
     <COMPILERS>gnu,intel</COMPILERS>
     <MPILIBS>openmpi</MPILIBS>
    
+    <!--USER DEFINED FILE IO. USers should only need to change the group name in the following settings as well as the location of the cprnc executable.-->
+
     <!--for e3sm only--> 
     <SAVE_TIMING_DIR>/blue/gerber/$ENV{USER}/earth_model_output/timings</SAVE_TIMING_DIR>
     
@@ -21,7 +23,7 @@
     
     <!--input data should be shared between all users in the group-->
     <DIN_LOC_ROOT>/blue/gerber/earth_models/inputdata</DIN_LOC_ROOT>
-    <DIN_LOC_ROOT_CLMFORC>$DIN_LOC_ROOT/clmforce</DIN_LOC_ROOT_CLMFORC>
+    <DIN_LOC_ROOT_CLMFORC>$DIN_LOC_ROOT/atm/datm7</DIN_LOC_ROOT_CLMFORC>
     
     <!--short term archive files-->
     <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/archive/$CASE</DOUT_S_ROOT>
@@ -31,6 +33,8 @@
     
     <!--cprnc executable location, built with gcc/12.2.0 may not work with intel built experiments-->
     <CCSM_CPRNC>/blue/gerber/earth_models/cprnc/bld/cprnc</CCSM_CPRNC>
+
+    <!--END USER DEFINED FILE IO-->
 
     <!--make program. can also add number of threads to pass to make with GMAKE_J tag (optional)-->
     <GMAKE>make</GMAKE>
@@ -91,11 +95,11 @@
     </module_system>
 
     <environment_variables>
-      <env name="OMP_STACKSIZE">256M</env> <!--L3 cache size of hpg-default cpu-->
+      <env name="OMP_STACKSIZE">256M</env><!--L3 cache size of hpg-default cpu-->
     </environment_variables>
 
     <resource_limits>
-      <resource name="RLIMIT_STACK">-1</resource> <!--python resource limit-->
+      <resource name="RLIMIT_STACK">-1</resource><!--python resource limit-->
     </resource_limits>
 
   </machine>

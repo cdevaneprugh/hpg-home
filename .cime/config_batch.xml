@@ -1,48 +1,44 @@
 <?xml version="1.0"?>
 <config_batch version="2.1">
+<!--
+This is where settings for the batch system are set. The only settings that should be changed by the user are email settings. The qos settings should ideally be set once by whoever ports the earth model for the group.
+In the future, we'd like to have this set so that qos settings are automatically determined, we could also use env vars to set the email address ($USER@ufl.edu).
+-->
 
   <batch_system MACH="hipergator" type="slurm">
     
-    <!--Job submit command-->
     <batch_submit>sbatch</batch_submit>
-   
     <depend_separator>,</depend_separator>
-
-    <!--Mail types accepted-->
     <batch_mail_type>NONE, BEGIN, END, FAIL, ALL</batch_mail_type>
 
-    <!--Arguments to pass when submitting a job, queue, wallclock time are typical fields -->
+    <!--Arguments to pass when submitting a job-->
     <submit_args>
-
-      <!--Max job run time-->
-      <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/>
- 
-      <!--Determined by quality of service (queue) selected-->   
-      <arg flag="-q" name="$JOB_QUEUE"/>
-     
-      <!--Exports all env vars from login node to compute node-->
-      <arg flag="--export=ALL"/>
-
+      <arg flag="--time" name="$JOB_WALLCLOCK_TIME"/><!--Max job run time-->
+      <arg flag="-q" name="$JOB_QUEUE"/><!--Determined by quality of service (queue) selected-->
+      <arg flag="--export=ALL"/><!--Exports all env vars from login node to compute node-->
     </submit_args>
 
     <!--slurm script directives section, be careful that these do not conflict with submit_args above -->
     <directives>
-
-      <!--Only run on hpg-default nodes for now-->
-      <directive>--partition=hpg-default</directive>
+      <directive>--partition=hpg-default</directive><!--currently set up for hpg-default nodes-->
       
-      <!--User defined mail settings-->
+      <!--USER DEFINED EMAIL SETTINGS-->
       <directive>--mail-type=END,FAIL</directive>
       <directive>--mail-user=cdevaneprugh@ufl.edu</directive>
+      <!--END OF USER DEFINED EMAIL SETTINGS-->
 
     </directives>
 
-    <!--These correspond to the QOS you want to use for the job-->
+    <!--Each queue corresponds to the QOS you want to use for a case. jobmin/max is the min/max task count to use with the queue. This option cannot be used in conjuction with nodemin/max option.
+        If your group QOS limit is less than one node, you should use jobmin/max. Set jobmin=1 and jobmax to the maximum number of cores you want to be able to use.
+ 	If your group QOS limit has multiple nodes, use nodemin/max. Set nodemin=1 and nodemax to the maximum number of nodes you want the Earth model to use.-->
+
+    <!--USER DEFINED QUEUES-->
     <queues>
-      <!--jobmin/max: The min/max task count to use with this queue. This is used to select queues that only use a fraction of a node. This cannot be used in conjuction with nodemin/max.-->
       <queue jobmin="1" jobmax="20" default="true">gerber</queue><!--Default QOS-->
       <queue jobmin="1" jobmax="128">gerber-b</queue><!--Burst QOS-->
     </queues>
+    <!--END USER DEFINED QUEUES-->
 
   </batch_system>
 
