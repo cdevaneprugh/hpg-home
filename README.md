@@ -180,3 +180,7 @@ I'll check to see if I can find a better internet connection to upload the files
 40. Modified batch config to validate with cesm and e3sm xml schema. Made significant changes. Need to check that both still work.
 41. Issues with e3sm. Putting that off until this summer.
 42. clmforce directory needed to be updated in config_machines. It has to match the file structure on the servers it's downloading from.
+43. MPI error when running the serial case. May have to build mpi serial library.
+44. Not sure what the mpi serial issue is. I can run on a single core with openmpi, but if I force mpi-serial every job fails.
+45. Trying other "I" compsets on a single core with PTS mode OFF. Most will run, some need more memory.
+46. Compared several compsets in global and PTS mode to try and find if MOSART or CISM is the cause of the breakage.

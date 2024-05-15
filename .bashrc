@@ -17,5 +17,5 @@ export PATH
 
 # User specific aliases and functions
 export BLUE=/blue/gerber/cdevaneprugh
-#export CIMETESTING=/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime/scripts/tests
-#export CIMEROOT=/blue/gerber/cdevaneprugh/my_cesm_sandbox/cime
+export CIMEOUTPUT=/blue/gerber/cdevaneprugh/earth_model_output/cime_output_root
+export CESMCIME=/blue/gerber/earth_models/cesm215/cime

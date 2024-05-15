@@ -11,7 +11,7 @@
 
     <!--comment separated with default first-->
     <COMPILERS>gnu,intel</COMPILERS>
-    <MPILIBS>openmpi</MPILIBS>
+    <MPILIBS>openmpi,mpi-serial</MPILIBS>
    
     <!--USER DEFINED FILE IO. USers should only need to change the group name in the following settings as well as the location of the cprnc executable.-->
 
