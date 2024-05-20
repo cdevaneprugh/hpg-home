@@ -1,0 +1,76 @@
+-- -*- lua -*-
+-- created: Mon May 20 08:44:50 2024 --
+-- Lmod 8.7.32  2023-08-28 12:42 -05:00
+_ModuleTable_ = {
+  MTversion = 3,
+  c_rebuildTime = false,
+  c_shortTime = 4.3218231201172,
+  depthT = {},
+  family = {
+    perl = "perl",
+  },
+  mT = {
+    cmake = {
+      fn = "/apps/lmod/modulefiles/core/cmake/3.26.4.lua",
+      fullName = "cmake/3.26.4",
+      hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      loadOrder = 4,
+      propT = {},
+      stackDepth = 0,
+      status = "active",
+      userName = "cmake/3.26.4",
+      wV = "000000003.000000026.000000004.*zfinal",
+    },
+    libplplot = {
+      fn = "/apps/lmod/modulefiles/core/libplplot/5.10.0.lua",
+      fullName = "libplplot/5.10.0",
+      hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      loadOrder = 2,
+      propT = {},
+      stackDepth = 1,
+      status = "active",
+      userName = "libplplot/5.10.0",
+      wV = "000000005.000000010.*zfinal",
+    },
+    perl = {
+      fn = "/apps/lmod/modulefiles/core/perl/5.24.1.lua",
+      fullName = "perl/5.24.1",
+      hash = "13c7c282e466d513dcd04aab7b1f03d84324538f",
+      loadOrder = 3,
+      propT = {},
+      stackDepth = 0,
+      status = "active",
+      userName = "perl/5.24.1",
+      wV = "^00000005.000000024.000000001.*zfinal",
+    },
+    subversion = {
+      fn = "/apps/lmod/modulefiles/core/subversion/1.9.7.lua",
+      fullName = "subversion/1.9.7",
+      hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      loadOrder = 5,
+      propT = {},
+      stackDepth = 0,
+      status = "active",
+      userName = "subversion/1.9.7",
+      wV = "000000001.000000009.000000007.*zfinal",
+    },
+    ufrc = {
+      fn = "/apps/lmod/modulefiles/core/ufrc.lua",
+      fullName = "ufrc",
+      hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      loadOrder = 1,
+      propT = {},
+      stackDepth = 0,
+      status = "active",
+      userName = "ufrc",
+      wV = "M.*zfinal",
+    },
+  },
+  mpathA = {
+    "/apps/lmod/modulefiles/core",
+  },
+  mpathRefCountT = {
+    ["/apps/lmod/modulefiles/core"] = 1,
+  },
+  systemBaseMPATH = "/apps/lmod/modulefiles/core",
+}

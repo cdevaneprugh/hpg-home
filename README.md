@@ -184,3 +184,6 @@ I'll check to see if I can find a better internet connection to upload the files
 44. Not sure what the mpi serial issue is. I can run on a single core with openmpi, but if I force mpi-serial every job fails.
 45. Trying other "I" compsets on a single core with PTS mode OFF. Most will run, some need more memory.
 46. Compared several compsets in global and PTS mode to try and find if MOSART or CISM is the cause of the breakage.
+47. Uploaded lmod config
+48. Issue seems to be with CISM, not MOSART.
+49. Going through CLM presentations.
