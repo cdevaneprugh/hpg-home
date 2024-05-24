@@ -187,3 +187,4 @@ I'll check to see if I can find a better internet connection to upload the files
 47. Uploaded lmod config
 48. Issue seems to be with CISM, not MOSART.
 49. Going through CLM presentations.
+50. Ran into some issues, we need the scripts and files from the workshop.
