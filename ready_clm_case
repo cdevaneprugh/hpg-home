@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# place this script in the case directory then submit to the batch system with sbatch
+
+#SBATCH --job-name=ready_case		     # Job name
+#SBATCH --mail-type=END,FAIL          	     # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user=cdevaneprugh@ufl.edu     # Where to send mail	
+#SBATCH --ntasks=1                           # Run on a single CPU
+#SBATCH --mem=4gb                            # Job memory request
+#SBATCH --time=1:00:00              	     # Time limit hrs:min:sec
+#SBATCH --output=ready_case%j.log	     # Standard output and error log
+
+./xmlchange --file env_mach_pes.xml --id TOTALPES --val 1
+./xmlchange --file env_mach_pes.xml --id NTASKS --val 1
+./xmlchange --file env_mach_pes.xml --id NTASKS_PER_INST --val 1
+./xmlchange --file env_mach_pes.xml --id ROOTPE --val 0
+./xmlchange JOB_WALLCLOCK_TIME=1:00:00
+
+./case.setup
+
+./xmlchange --file env_run.xml --id CLM_FORCE_COLDSTART --val on
+./xmlchange --file env_run.xml --id CLM_NML_USE_CASE --val 1850_control
+./xmlchange --file env_run.xml --id DATM_CLMNCEP_YR_START --val 1901
+./xmlchange --file env_run.xml --id DATM_CLMNCEP_YR_END --val 1920
+./xmlchange --file env_run.xml --id DATM_PRESAERO --val clim_1850
+./xmlchange --file env_run.xml --id CCSM_CO2_PPMV --val 284.7
+./xmlchange --file env_run.xml --id STOP_OPTION --val nyears
+./xmlchange --file env_run.xml --id STOP_N --val 5
+./xmlchange --file env_run.xml --id RUN_REFDATE --val 0001-01-01
+./xmlchange --file env_run.xml --id RUN_STARTDATE --val 0001-01-01
+
+./case.build
+./check_case
